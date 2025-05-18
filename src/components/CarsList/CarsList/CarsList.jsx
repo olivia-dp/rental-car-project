@@ -24,8 +24,10 @@ const CarsList = () => {
   const filters = useSelector(selectFilters);
 
   useEffect(() => {
-    dispatch(fetchAllCarsThunk({ page, filters }));
-  }, [dispatch, page, filters]);
+    if (cars.length === 0) {
+      dispatch(fetchAllCarsThunk({ page, filters }));
+    }
+  }, [dispatch, page, filters, cars.length]);
 
   const handleChangePage = () => {
     if (!isLoading) {

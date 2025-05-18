@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { fetchAllCarsThunk } from "../../../redux/cars/operations";
 import {
   isCarsError,
@@ -9,7 +9,7 @@ import {
   selectPage,
   selectTotal,
 } from "../../../redux/cars/selectors";
-import { setPage } from "../../../redux/cars/slice";
+import { setPage, resetCars } from "../../../redux/cars/slice";
 import CarsListItem from "../CarsListItem/CarsListItem";
 import s from "./CarsList.module.css";
 import Loader from "../../Loader/Loader";
@@ -23,22 +23,19 @@ const CarsList = () => {
   const total = useSelector(selectTotal);
   const filters = useSelector(selectFilters);
 
-  const fetchedRef = useRef(new Set());
-
   useEffect(() => {
-    const key = `${page}_${JSON.stringify(filters)}`;
-    if (!fetchedRef.current.has(key)) {
-      dispatch(fetchAllCarsThunk({ page, filters }));
-      fetchedRef.current.add(key);
-    }
+    dispatch(resetCars());
+  }, [dispatch, filters]);
+  
+  useEffect(() => {
+    dispatch(fetchAllCarsThunk({ page, filters }));
   }, [dispatch, page, filters]);
-
+  
   const handleChangePage = () => {
-    if (!isLoading) {
+    if (!isLoading && page < total) {
       dispatch(setPage(page + 1));
     }
   };
-
   return (
     <div className={s.listContainer}>
       {isError && <h2>Something went wrong!</h2>}

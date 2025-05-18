@@ -24,6 +24,10 @@ const carsSlice = createSlice({
     clearCars(state) {
       state.cars = [];
     },
+    resetCars(state) {
+      state.cars = [];
+      state.page = 1;
+    },
     clearSelectedCar(state) {
       state.selectedCar = null;
     },
@@ -46,12 +50,17 @@ const carsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchAllCarsThunk.fulfilled, (state, action) => {
+    .addCase(fetchAllCarsThunk.fulfilled, (state, action) => {
+      if (state.page === 1) {
+        state.cars = action.payload.cars;
+      } else {
         state.cars = [...state.cars, ...action.payload.cars];
-        state.total = action.payload.total;
-        state.isLoading = false;
-        state.isError = null;
-      })
+      }
+      state.total = action.payload.total;
+      state.isLoading = false;
+      state.isError = null;
+    })
+    
       .addCase(fetchAllCarsThunk.pending, (state) => {
         state.isLoading = true;
         state.isError = null;
@@ -78,6 +87,6 @@ const carsSlice = createSlice({
   },
 });
 
-export const { clearCars, clearSelectedCar, setPage, setFilters, resetFilters } =
+export const { clearCars, resetCars, clearSelectedCar, setPage, setFilters, resetFilters } =
   carsSlice.actions;
 export const carsReducer = carsSlice.reducer;

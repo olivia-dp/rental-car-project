@@ -107,7 +107,7 @@ const CarInfo = () => {
         <div className={s.specifBox}>
           <h3 className={s.titleCond}>Accessories and functionalities: </h3>
           <ul>
-            {car.functionalities.map((item, index) => (
+            {[...car.functionalities, ...car.accessories].map((item, index) => (
               <li key={index} className={s.listItem}>
                 <svg className={s.icon}>
                   <use href="/symbol-defs.svg#icon-check-circle" />

@@ -23,18 +23,13 @@ const CarsList = () => {
   const total = useSelector(selectTotal);
   const filters = useSelector(selectFilters);
 
-  const prevPageRef = useRef(null);
-  const prevFiltersRef = useRef(null);
+  const fetchedRef = useRef(new Set());
 
   useEffect(() => {
-    const isSamePage = prevPageRef.current === page;
-    const isSameFilters =
-      JSON.stringify(prevFiltersRef.current) === JSON.stringify(filters);
-
-    if (!isSamePage || !isSameFilters) {
+    const key = `${page}_${JSON.stringify(filters)}`;
+    if (!fetchedRef.current.has(key)) {
       dispatch(fetchAllCarsThunk({ page, filters }));
-      prevPageRef.current = page;
-      prevFiltersRef.current = filters;
+      fetchedRef.current.add(key);
     }
   }, [dispatch, page, filters]);
 

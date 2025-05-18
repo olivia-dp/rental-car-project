@@ -2,7 +2,7 @@ import { useForm, Controller } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { isCarsLoading, selectCars, selectedBrands } from "../../redux/cars/selectors";
 import { useEffect, useMemo, useState } from "react";
-import { setPage, setFilters } from "../../redux/cars/slice";
+import { setPage, setFilters, clearCars } from "../../redux/cars/slice";
 import { getBrands } from "../../redux/cars/operations";
 import Select from "react-select";
 import s from "./FilterBar.module.css";
@@ -51,7 +51,7 @@ const FilterBar = () => {
       maxMileage: data.mileageTo || undefined,
       rentalPrice: data.rentalPrice?.value || undefined,
     };
-
+    dispatch(clearCars());
     dispatch(setFilters(filters));
     dispatch(setPage(1));
   };

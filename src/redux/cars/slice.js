@@ -38,6 +38,11 @@ const carsSlice = createSlice({
       state.page = 1;
       state.cars = [];
     },
+    resetFilters(state) {
+      state.filters = {};
+      state.page = 1;
+      state.cars = [];
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -73,6 +78,6 @@ const carsSlice = createSlice({
   },
 });
 
-export const { clearCars, clearSelectedCar, setPage, setFilters } =
+export const { clearCars, clearSelectedCar, setPage, setFilters, resetFilters } =
   carsSlice.actions;
 export const carsReducer = carsSlice.reducer;

@@ -1,0 +1,117 @@
+.card {
+  position: relative;
+  height: 424px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.imgBox {
+  border-radius: 14px;
+  width: 276px;
+  height: 268px;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 20, 23, 0.5) 0%,
+    rgba(18, 20, 23, 0.5) 100%
+  );
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.iconLike {
+  stroke: var(--white);
+  fill: var(--white);
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+.active {
+  fill: var(--button);
+  stroke: var(--button);
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+
+.modelBox {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.modelText {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+}
+.modelPrice {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+  margin-right: 11px;
+}
+.modelAccent {
+  color: var(--button);
+}
+.infoBox {
+  display: flex;
+  gap: 4px 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.infoText {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--gray);
+}
+.infoText:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  height: 16px;
+  width: 1px;
+  background-color: var(--gray-light);
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.grouped {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.btn {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--white);
+  border-radius: 12px;
+  padding: 12px;
+  width: 276px;
+  height: 44px;
+  background-color: var(--button);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.btn:hover {
+  background: var(--button-hover);
+}

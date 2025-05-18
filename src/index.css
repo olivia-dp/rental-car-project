@@ -1,0 +1,91 @@
+@import "modern-normalize/modern-normalize.css";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+:root {
+  --font-family: "Manrope", sans-serif;
+  --second-family: "Inter", sans-serif;
+
+  --main: #101828;
+  --gray: #8d929a;
+  --gray-light: #dadde1;
+  --badges: #f2f4f7;
+  --inputs: #f7f7f7;
+  --white: #fff;
+  --button: #3470ff;
+  --button-hover: #0b44cd;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px transparent inset;
+  -webkit-text-fill-color: var(--white-400);
+  background-color: transparent !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--white-600);
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.custom-select__menu-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-select__menu-list::-webkit-scrollbar-thumb {
+  background: var(--gray-light);
+  border-radius: 10px;
+}

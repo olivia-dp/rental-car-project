@@ -1,0 +1,97 @@
+.container {
+  padding: 84px 120px;
+  display: flex;
+  gap: 72px;
+  width: 100%;
+}
+.imgBox {
+  border-radius: 19px;
+  width: 640px;
+  height: 512px;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 20, 23, 0.5) 0%,
+    rgba(18, 20, 23, 0.5) 100%
+  );
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.img {
+  height: 100%;
+  object-fit: cover;
+}
+.titleBox {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
+}
+.id {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--gray);
+  display: block;
+}
+.infoText {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+}
+
+.locationBox {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--button);
+  margin-bottom: 32px;
+}
+.description {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+}
+.conditions {
+  margin-top: 68px;
+}
+.titleCond {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+  margin-bottom: 20px;
+}
+.icon {
+  width: 16px;
+  height: 16px;
+  fill: black;
+}
+.listItem {
+  margin-bottom: 16px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.listItem:last-child {
+  margin-bottom: 0;
+}
+
+.specifBox {
+  margin-top: 110px;
+}

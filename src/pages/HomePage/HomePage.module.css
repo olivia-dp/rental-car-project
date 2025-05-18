@@ -1,0 +1,63 @@
+.hero {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)),
+    url("/src/assets/images/Heroimg-1x.jpg");
+
+  background-color: rgba(0, 0, 0, 0.2);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 700px;
+  padding: 436px 0 0;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)),
+      url("/src/assets/images/Heroimg-2x.jpg");
+  }
+}
+.heroInfo {
+  width: 783px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 120%;
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.heroText {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 40px;
+}
+
+.button {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--white);
+  border-radius: 12px;
+  padding: 12px;
+  height: 44px;
+  background: var(--button);
+  width: 276px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.button:hover {
+  background: var(--button-hover);
+}

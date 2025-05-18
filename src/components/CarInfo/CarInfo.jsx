@@ -53,7 +53,7 @@ const CarInfo = () => {
           <p className={s.infoText}>
             {" "}
             <SlLocationPin width={16} height={16} />{" "}
-            {car.address.split(",")[1]?.trim()}{" "}
+            {car.address.split(",")[1]?.trim()}{", "}
             {car.address.split(",")[2]?.trim()}
           </p>
           <p className={s.infoText}>

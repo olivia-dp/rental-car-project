@@ -14,10 +14,6 @@ import CarsListItem from "../CarsListItem/CarsListItem";
 import s from "./CarsList.module.css";
 import Loader from "../../Loader/Loader";
 
-
-
-
-
 const CarsList = () => {
   const dispatch = useDispatch();
   const cars = useSelector(selectCars);
@@ -27,15 +23,20 @@ const CarsList = () => {
   const total = useSelector(selectTotal);
   const filters = useSelector(selectFilters);
 
-
-  const isFirstLoad = useRef(true);
+  const prevPageRef = useRef(null);
+  const prevFiltersRef = useRef(null);
 
   useEffect(() => {
-    if (isFirstLoad.current) {
+    const isSamePage = prevPageRef.current === page;
+    const isSameFilters =
+      JSON.stringify(prevFiltersRef.current) === JSON.stringify(filters);
+
+    if (!isSamePage || !isSameFilters) {
       dispatch(fetchAllCarsThunk({ page, filters }));
-      isFirstLoad.current = false;
+      prevPageRef.current = page;
+      prevFiltersRef.current = filters;
     }
-  }, [dispatch]);
+  }, [dispatch, page, filters]);
 
   const handleChangePage = () => {
     if (!isLoading) {
@@ -43,15 +44,10 @@ const CarsList = () => {
     }
   };
 
-
-  useEffect(() => {
-    if (!isFirstLoad.current) {
-      dispatch(fetchAllCarsThunk({ page, filters }));
-    }
-  }, [page, dispatch, filters]);
-
   return (
     <div className={s.listContainer}>
+      {isError && <h2>Something went wrong!</h2>}
+
       <ul className={s.list}>
         {cars.map((item) => (
           <li key={item.id} className={s.listItem}>
@@ -60,17 +56,17 @@ const CarsList = () => {
         ))}
       </ul>
 
-      {cars.length > 0 && page < total && (
-        !isLoading ? (
-          <button onClick={handleChangePage} className={s.btn}>
-            Load more
-          </button>
-        ) : (
-          <Loader />
-        )
+      {isLoading && <Loader />}
+
+      {!isLoading && cars.length === 0 && (
+        <p className={s.noMatches}>No matches found</p>
       )}
 
-      {isError && <h2>Something went wrong!</h2>}
+      {cars.length > 0 && page < total && !isLoading && (
+        <button onClick={handleChangePage} className={s.btn}>
+          Load more
+        </button>
+      )}
     </div>
   );
 };

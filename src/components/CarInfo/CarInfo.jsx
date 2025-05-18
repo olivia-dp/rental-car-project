@@ -68,7 +68,7 @@ const CarInfo = () => {
             {car.rentalConditions.map((item, index) => (
               <li key={index} className={s.listItem}>
                 <svg className={s.icon}>
-                  <use href="/public/symbol-defs.svg#icon-check-circle" />
+                  <use href="/symbol-defs.svg#icon-check-circle" />
                 </svg>
                 {item}
               </li>
@@ -80,25 +80,25 @@ const CarInfo = () => {
           <ul>
             <li className={s.listItem}>
               <svg className={s.icon}>
-                <use href="/public/symbol-defs.svg#icon-calendar" />
+                <use href="/symbol-defs.svg#icon-calendar" />
               </svg>
               Year: {car.year}
             </li>
             <li className={s.listItem}>
               <svg className={s.icon}>
-                <use href="/public/symbol-defs.svg#icon-car" />
+                <use href="/symbol-defs.svg#icon-car" />
               </svg>
               Type: {car.type}
             </li>
             <li className={s.listItem}>
               <svg className={s.icon}>
-                <use href="/public/symbol-defs.svg#icon-fuel-pump" />
+                <use href="/symbol-defs.svg#icon-fuel-pump" />
               </svg>
               Fuel Consumption: {car.fuelConsumption}
             </li>
             <li className={s.listItem}>
               <svg className={s.icon}>
-                <use href="/public/symbol-defs.svg#icon-gear" />
+                <use href="/symbol-defs.svg#icon-gear" />
               </svg>
               Engine size: {car.engineSize}
             </li>
@@ -110,7 +110,7 @@ const CarInfo = () => {
             {car.functionalities.map((item, index) => (
               <li key={index} className={s.listItem}>
                 <svg className={s.icon}>
-                  <use href="/public/symbol-defs.svg#icon-check-circle" />
+                  <use href="/symbol-defs.svg#icon-check-circle" />
                 </svg>
                 {item}
               </li>

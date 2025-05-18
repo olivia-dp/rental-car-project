@@ -25,11 +25,11 @@ const CarsListItem = ({ item }) => {
         <div onClick={toggleIcon}>
           {!isActive ? (
             <svg className={s.iconLike}>
-              <use href={"/public/symbol-defs.svg#icon-like"} />
+              <use href={"/symbol-defs.svg#icon-like"} />
             </svg>
           ) : (
             <svg className={s.active}>
-              <use href={"/public/symbol-defs.svg#icon-like-active"} />
+              <use href={"/symbol-defs.svg#icon-like-active"} />
             </svg>
           )}
         </div>

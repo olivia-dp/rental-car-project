@@ -131,7 +131,7 @@ const FilterBar = () => {
                   classNamePrefix="custom-select"
                   styles={customStyles}
                   options={brandOptions}
-                  placeholder="Select a brand"
+                  placeholder="Choose a brand"
                   onMenuOpen={() => setMenuIsOpenBrand(true)}
                   onMenuClose={() => setMenuIsOpenBrand(false)}
                   components={{

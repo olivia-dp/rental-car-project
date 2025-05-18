@@ -1,6 +1,6 @@
 import { useForm, Controller } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { isCarsLoading, selectedBrands } from "../../redux/cars/selectors";
+import { isCarsLoading, selectCars, selectedBrands } from "../../redux/cars/selectors";
 import { useEffect, useMemo, useState } from "react";
 import { setPage, setFilters } from "../../redux/cars/slice";
 import { getBrands } from "../../redux/cars/operations";
@@ -10,6 +10,7 @@ import Loader from "../Loader/Loader";
 
 const FilterBar = () => {
   const brands = useSelector(selectedBrands);
+  const cars = useSelector(selectCars);
   const dispatch = useDispatch();
   const [menuIsOpenBrand, setMenuIsOpenBrand] = useState(false);
   const [menuIsOpenPrice, setMenuIsOpenPrice] = useState(false);
@@ -245,7 +246,11 @@ const FilterBar = () => {
           Search
         </button>
       </form>
-      {isLoading && <Loader />}
+      {isLoading ? (
+  <Loader />
+) : cars.length === 0 ? (
+  <p className={s.noMatches}>No matches found</p>
+) : null}
     </div>
   );
 };

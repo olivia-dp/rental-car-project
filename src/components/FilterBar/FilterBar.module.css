@@ -96,3 +96,9 @@
 .btn:hover {
   background: var(--button-hover);
 }
+.noMatches {
+  text-align: center;
+  color: var(--gray);
+  font-size: 18px;
+  margin-top: 50px;
+}
